@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://tympanus.net/Development/StorytellingMap/ -->
+<html lang="en" class="no-js">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Demo</title>
+    <meta name="description" content="description" />
+    <meta name="keywords" content="keywords" />
+    <meta name="author" content="Skymap global vn" />
+    <link rel="stylesheet" type="text/css" href="./assets/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/demoad.css" />
+    <link rel="stylesheet" type="text/css" href="./css/map.css" />
+
+    <style>
+      .container {
+        position: fixed;
+        top: 20px;
+        right: 10px;
+        bottom: 20px;
+        z-index: 2;
+        width: calc(100vw - max(50%, 700px));
+        height: calc(100% - 20px - 20px);
+      }
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+      .text {
+        z-index: 1;
+      }
+    </style>
+    <script>
+      window.data = {
+        center: [-79.41320306327765, 43.665505203534224],
+        zoom: 13,
+        items: [
+          {
+            id: 1,
+            title: "step 1",
+            description: "description 1",
+            image: "./assets/1.jpg",
+            coordinate: [-79.44339623066071, 43.678053582408495],
+          },
+          {
+            id: 2,
+            image: "./assets/2.jpg",
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.39401443647779, 43.687866673846],
+          },
+          {
+            id: 3,
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.38687995629788, 43.670161478581974],
+          },
+          {
+            id: 4,
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.37918295944556, 43.651963933250045],
+          },
+          {
+            id: 5,
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.37901678580322, 43.65167475199658],
+          },
+          {
+            id: 6,
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.39081622902211, 43.64912911841773],
+          },
+          {
+            id: 7,
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.38870531947998, 43.643959195383076],
+          },
+          {
+            id: 8,
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.40145196570964, 43.64072776544063],
+          },
+          {
+            id: 9,
+            title: "step 2",
+            description: "description 1",
+            coordinate: [-79.40212853928915, 43.642607891278914],
+          },
+        ],
+        path: {
+          type: "FeatureCollection",
+          features: [
+            {
+              type: "Feature",
+              properties: {
+                is_path: true,
+              },
+              geometry: {
+                coordinates: [
+                  [-79.44339623066071, 43.678053582408495],
+                  [-79.39401443647779, 43.687866673846],
+                  [-79.38687995629788, 43.670161478581974],
+                  [-79.37918295944556, 43.651963933250045],
+                  [-79.37901678580322, 43.65167475199658],
+                  [-79.39081622902211, 43.64912911841773],
+                  [-79.38870531947998, 43.643959195383076],
+                  [-79.40145196570964, 43.64072776544063],
+                  [-79.40212853928915, 43.642607891278914],
+                ],
+                type: "LineString",
+              },
+            },
+          ],
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="main">
+      <header class="codrops-header">
+        <h1 class="header-title">
+          <span class="header-title__main">Title</span>
+          <span class="header-title__part">Sub title 1</span>
+          <span class="header-title__sub">Sub title - 2 </span>
+        </h1>
+      </header>
+      <!-- <div class="intro">
+        <blockquote>
+          <em
+            >“Twenty years from now you will be more disappointed by the things
+            you didn’t do <br />than by the ones you did do.”</em
+          ><span>Mark Twain</span>
+        </blockquote>
+      </div> -->
+      <div class="container">
+        <div id="map"></div>
+      </div>
+      <div class="text">
+        <section class="js-section" data-id="1">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/1.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="2">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/2.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="3">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/3.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="4">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/4.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="5">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/3.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="6">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/6.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="7">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/7.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="8">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/8.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section" data-id="9">
+          <h2>
+            <span class="title-up">Lorem ipsum</span
+            ><span class="title-down">Lorem ipsum dolor sit amet</span>
+          </h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+            Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+            aliquet nec, vulputate eget, arcu.
+          </p>
+
+          <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+            tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
+            ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+            tellus.
+          </p>
+
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+          <figure>
+            <img class="js-image" data-pos="0.25" src="./assets/9.jpg" />
+            <figcaption>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </figcaption>
+          </figure>
+          <p>
+            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+            Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+            ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+            tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit
+            amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
+            luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+            tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.
+            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+            magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+            nunc,
+          </p>
+        </section>
+        <section class="js-section-reset"></section>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.3/mapbox-gl.js"
+      integrity="sha512-tldth+cMr7+fhIH/nukYRyTgO2SJbUolfZqszkTtpocQy6Vm1Ps6R3lhsYliIvaMqjDgA91VE+GnAju8LkGOWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.13.3/mapbox-gl.min.css"
+      integrity="sha512-f9ygkycTxYz4ZGWOrdRHvW8RvVtF0BzP0nl2a2eF2LE4N5FzXqtHnxip+Ses43V9l9QwP0iGs7NvCp7yrdBXpg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="./js/map.js"></script>
+    <!-- /main -->
+    <script></script>
+  </body>
+</html>

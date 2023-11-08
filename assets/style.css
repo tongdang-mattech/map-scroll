@@ -1,0 +1,450 @@
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "codropsicons";
+  src: url("../fonts/codropsicons/codropsicons.eot");
+  src: url("../fonts/codropsicons/codropsicons.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/codropsicons/codropsicons.woff") format("woff"),
+    url("../fonts/codropsicons/codropsicons.ttf") format("truetype"),
+    url("../fonts/codropsicons/codropsicons.svg#codropsicons") format("svg");
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+
+body {
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  color: #5d5c56;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  outline: none;
+  color: #47dbb4;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #33b996;
+}
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Canvas container */
+.container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: calc(100vw - max(50%, 700px));
+}
+.container img {
+  width: 100%;
+}
+
+/* Header */
+.codrops-header {
+  padding: 2em 1em 4em;
+  text-align: center;
+  height: 100vh;
+  min-height: 600px;
+  z-index: 1000;
+  position: relative;
+  color: #fff;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: #181922 url(./2.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.codrops-header::before {
+  content: "";
+  background: rgba(24, 25, 34, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header-title {
+  position: relative;
+}
+
+.header-title__main {
+  margin: 0em 0 0.15em 0;
+  font-size: 3em;
+  font-weight: 400;
+  line-height: 1;
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond,
+    "Times New Roman", serif;
+}
+
+.header-title__part {
+  display: block;
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond,
+    "Times New Roman", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-indent: 4px;
+  font-size: 0.85em;
+  padding: 0.5em 0 2em;
+}
+
+.header-title__part::before,
+.header-title__part::after {
+  content: "\2014";
+  padding: 0 0.5em;
+}
+
+.header-title__sub {
+  display: block;
+  padding: 0.5em 0 1em;
+  font-weight: 500;
+  font-size: 0.55em;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #d1d2d2;
+}
+
+.intro {
+  background: #181922;
+  color: #fff;
+  font-size: 2em;
+  text-align: center;
+  z-index: 1000;
+  position: relative;
+  padding: 3em;
+  height: 150vh;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: 0 0 3em;
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond,
+    "Times New Roman", serif;
+}
+
+.intro blockquote {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro em {
+  font-size: 1.5em;
+}
+
+.intro span {
+  color: #464b4b;
+  display: block;
+  padding: 1em 0;
+}
+
+/* Top Navigation Style */
+.codrops-links {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.codrops-links::after {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  content: "";
+  -webkit-transform: rotate3d(0, 0, 1, 22.5deg);
+  transform: rotate3d(0, 0, 1, 22.5deg);
+}
+
+.codrops-icon {
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0em 0;
+  width: 1.5em;
+  text-decoration: none;
+}
+
+.codrops-icon span {
+  display: none;
+}
+
+.codrops-icon:before {
+  margin: 0 5px;
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-family: "codropsicons";
+  line-height: 1;
+
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.codrops-icon--drop:before {
+  content: "\e001";
+  color: #0099cc;
+}
+
+.codrops-icon--prev:before {
+  content: "\e004";
+}
+
+/* Demo links */
+.codrops-demos {
+  margin: 2em 0 0;
+}
+
+.codrops-demos a {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+.codrops-demos a.current-demo {
+  color: #333;
+}
+
+/* Content */
+.content {
+  padding: 3em 0;
+}
+
+/* Related demos */
+.content--related {
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+  padding: 10em 2em;
+  background: #181922;
+  color: #fff;
+}
+
+.info {
+  font-size: 1.65em;
+  padding: 0 0 4em;
+}
+
+.media-item {
+  display: inline-block;
+  padding: 1em;
+  vertical-align: top;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.media-item__img {
+  max-width: 100%;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.media-item:hover .media-item__img,
+.media-item:focus .media-item__img {
+  opacity: 1;
+}
+
+.media-item__title {
+  margin: 0;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+/* Story */
+.text {
+  position: relative;
+  padding: 5em 3em;
+  z-index: 1000;
+}
+
+.text section {
+  font-size: 1.25em;
+  line-height: 1.7;
+}
+
+.text section h2 {
+  font-weight: 400;
+  font-size: 2.7em;
+  margin: 0;
+  text-align: left;
+}
+
+.text section:not(:first-child) h2 {
+  padding: 2em 0 0 0;
+}
+
+.title-up {
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.365em;
+  font-weight: bold;
+  letter-spacing: 7px;
+  color: #cecec5;
+}
+
+.title-down {
+  font-weight: 400;
+  color: #5f646c;
+  font-size: 1.35em;
+  line-height: 0.9;
+  padding: 0.15em 0 0.35em;
+  display: block;
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond,
+    "Times New Roman", serif;
+}
+
+.text figure {
+  margin: 1em 0 2em;
+}
+
+.text figure img {
+  max-width: 100%;
+}
+
+.text figcaption {
+  font-style: italic;
+  font-size: 0.85em;
+  text-align: center;
+  padding: 1em 1.5em 0;
+  color: #5f646c;
+}
+
+.text section p {
+  font-size: 0.95em;
+  margin: 0.5em 0 1.5em;
+}
+
+.text section p.text-intro {
+  margin: 0.5em 0 1.25em;
+  font-style: italic;
+  font-size: 1.3em;
+  color: #9d9c95;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.text blockquote {
+  font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond,
+    "Times New Roman", serif;
+  font-size: 2em;
+  line-height: 1.5;
+  position: relative;
+  color: #939997;
+  text-align: left;
+}
+
+.text blockquote::before {
+  content: "\201C";
+  position: absolute;
+  right: 100%;
+  font-size: 2.5em;
+  font-style: italic;
+  top: -0.15em;
+  color: #f0f3f3;
+  margin: 0 0.075em 0 0;
+  line-height: 1;
+}
+
+.text blockquote span {
+  font-size: 0.5em;
+  color: #cbcece;
+  white-space: nowrap;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+
+.js-section {
+  width: 50%;
+  max-width: 700px;
+}
+
+.js-gallery {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.js-gallery-content {
+  text-align: center;
+  font-size: 0;
+}
+
+.js-gallery-content img {
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+body #cdawrap {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  top: 15px;
+  --cda-sp-color: #ddd;
+  --cda-remove-color: #ddd;
+}
+
+body #cdawrap .carbon-text {
+  color: #ddd;
+}
+
+@media (max-width: 720px) {
+  .header-title {
+    font-size: 1.5em;
+  }
+  .intro {
+    font-size: 1.25em;
+    padding: 1em;
+    height: auto;
+  }
+  .text {
+    padding: 2em;
+    font-size: 0.85em;
+    text-align: justify;
+  }
+  .text section h2 {
+    font-size: 1.85em;
+  }
+  .text blockquote {
+    font-size: 1.45em;
+  }
+  .js-section {
+    width: 100%;
+    max-width: none;
+  }
+}
